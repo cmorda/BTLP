@@ -1,0 +1,35 @@
+# BungeeWeb Configuration File
+
+# Server settings
+server:
+
+  # Port to run the server on
+  port: 8443
+
+  # Amount of time in seconds between status checks
+  # Set to -1 to disable all graphing
+  statscheck: 60
+
+# Logged items
+log:
+  chat: true
+  command: true
+  join: true
+  quit: true
+  kick: true
+  serverchange: true
+
+# Graphed items
+stats:
+  playercount: true
+  maxplayers: false
+  activity: true
+
+# MySQL details
+database:
+  host: 127.0.0.1
+  port: 3306
+  user: mc
+  pass: minecraft
+  db: minecraft
+  prefix: bungeeweb_

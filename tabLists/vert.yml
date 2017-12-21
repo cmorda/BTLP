@@ -1,0 +1,144 @@
+# 
+# This the default TabList
+# It is shown to all users which haven't got another TabList
+# 
+# Create a copy of this File, name it like you wish
+# and change the showTo and some other options
+# to create another TabList only shown to some users.
+# By doing this you can for example create
+# a special TabList for VIPs / Admins or
+# create a tabList only shown o one server
+# You can find more information on the wiki https://github.com/CodeCrafter47/BungeeTabListPlus/wiki
+# 
+
+# Defines to which players this tabList applies
+# No effect in the default tabList
+# possible values:
+# 'Player:<Name>' for specific Player
+# 'Players:<player1>,<player2>' for multiple Players
+# 'Server:<Server>' for all Players on that Server
+# 'Servers:<server1>,<server2>' for all Players which are on These Servers
+# 'group:<group>' for all players within that permission group
+# 'groups:<group1>,<group2>' same with multiple groups
+# '1.7' for all players with client version 1.7 or below
+# '1.8' for all players with client version 1.8 or above
+# 'all' for all players
+showTo: all
+
+# If multiple tab list are available for a player the plugin
+# chooses the tab list with the highest priority
+priority: 1
+
+# This text will be shown above the tablist
+# Add multiple lines to create an animation
+header:
+- '&bWelcome &6{player}'
+
+# Interval (in seconds) at which the header animation is updated
+# Use this to configure the speed to the animation
+headerAnimationUpdateInterval: 0.25
+
+# This text will be shown below the tablist
+# Add multiple lines to create an animation
+footer:
+- '&bLionheartMC.net - &e&lPlayers In Hub: &b{players:hub} - &bLionheartMC.net'
+
+# Interval (in seconds) at which the footer animation is updated
+# Use this to configure the speed to the animation
+footerAnimationUpdateInterval: 0.5
+
+# whether to shown header/footer or not. You should set this to false if you wan to use a bukkit/spigot side plugin for that.
+shownFooterHeader: true
+
+# The skin shown for non-players
+# leave empty for default skins
+defaultSkin: MHF_Question
+
+# ping value tu use for non-player slots, 
+# used if no other value is specified using [PING=?]
+defaultPing: 0
+
+# 1.8 and later versions ONLY
+# When enabled the tablist will adjust it's size to the number of players online/ slots used, instead of using
+# the static tab_size set in bungee's config.yml.
+# WARNING: This is an experimental feature an will most likely cause bugs
+# WARNING: [ALIGN=LEFT] and other formatting tags will not operate correctly
+# WARNING: If this is enabled it is STRONGLY recommended to also enable verticalMode
+autoShrinkTabList: false
+
+# 1.8 and later versions ONLY
+# Number of slots in the tab list.
+# tab_size for 1.7 and older clients is configured in bungee's config.yml
+# Can be from 1 to 80.
+tab_size: 80
+
+# how Players should be grouped
+# You can use 'SERVER' or 'NONE'
+groupPlayers: NONE
+
+# Whether to Show Groups with no Players
+# not effective if groupPlayers=NONE
+showEmptyGroups: false
+
+# If enabled slots are filled top-to-bottom instead of left-to-right
+verticalMode: true
+
+# This is how a group looks in the tabList
+# Use {fillplayers} at the point where you
+# wish the players to be listet
+# not effective if groupPlayers=NONE
+# You can also use {fillplayers:<group>}
+groupLines:
+- '[ALIGN LEFT][SKIN=MHF_ArrowRight]&9&l>&9 {server}({server_player_count}):'
+- '{fillplayers}'
+
+# This allows you to change the way players are listed
+# You can also use multiple slots to display additional information
+playerLines:
+- '{tabName}'
+
+# These lines are shown if there's not enough space
+# for all players upon the tabList
+morePlayersLines:
+- '... and {other_count} others'
+
+# And here finally is the tabList
+# Use {fillplayers} at the point where
+# you want the players to be shown.
+# You can also use {fillplayers:<group>} or {fillplayers:<server>}
+# Use [ALIGN BOTTOM] to state that the following
+# lines should be shown at the bottom of the tabList
+# You can also use [ALIGN LEFT]
+# You can use Variables to display dynamic content
+# more information at https://github.com/CodeCrafter47/BungeeTabListPlus/wiki
+tabList:
+- '&lPlayer Info'
+- ''
+- '[SKIN=LordBart2000]&6&lCurrent Ping'
+- '[SKIN=notch]&b{ping}ms'
+- ' '
+- '&6&lBalance'
+- '&b{balance} {currency}'
+- ' '
+- '&6&lDate'
+- '&b{month}/{day}/{year}'
+- ' '
+- '&6&lPosition (X,Y,Z)'
+- '&bX: {posX}'
+- '&bY: {posY}'
+- '&bZ: {posZ}'
+- ' '
+- '&6&lPlayers: &b{players}'
+- '[SKIN=_Syntax_Error][ROW=18]&6&lServer Time'
+- '[SKIN=CavemanlyMan]&b{hours}:{minute}'
+- '[ROW=0]&2&l&nSkyblock&r&2 ({players:skyblock})'
+- '[MAXPLAYERS=9]{fillplayers:skyblock}'
+#- '[ROW=10]&b&l&nHardcore&r&d ({players:hardcore})'
+#- '[MAXPLAYERS=9]{fillplayers:hardcore}'
+- '[ROW=0]&c&l&nSurvival&r&c ({players:survival})'
+- '[MAXPLAYERS=19]{fillplayers:survival}'
+- '[ROW=0]&b&l&nHardcore&b ({players:hardcore})'
+- '[MAXPLAYERS=9]{fillplayers:hardcore}'
+- '[ROW=10]&d&l&nPlots&r&d ({players:plots})'
+- '[MAXPLAYERS=9]{fillplayers:plots}'
+
